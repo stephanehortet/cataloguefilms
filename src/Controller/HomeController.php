@@ -130,14 +130,12 @@ class HomeController extends AbstractController
             $liste_film_auteur = $this->entityManager->getRepository(Auteur::class)->findByIdFm($auteur->getIdFm());
 
             foreach ($liste_film_auteur as $film_auteur){
-
                 $film_autre = $this->entityManager->getRepository(FilmAuteur::class)->findOneByAuteurId($film_auteur->getId());
                 dump($film_autre);
                 if($film_auteur->getId() != $id){
                     $auteurs_collection->add($film_auteur);
                 }
             }
-
         }
         dd("stop");
         $lieux_tournages_14_all = array();
